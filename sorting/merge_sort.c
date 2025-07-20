@@ -4,24 +4,14 @@ void merge(int arr[],int lo,int mid,int hi){
     int j=mid+1;
     int k=0;
     int temp[100];
-
     while (i<=mid && j<=hi){
-        if (arr[i] < arr[j]){
-            temp[k++]=arr[i++];
-        }
-        else{
-            temp[k++]=arr[j++];
-        }
+        if (arr[i] < arr[j]) temp[k++]=arr[i++];
+        else temp[k++]=arr[j++];
     }
-    while (i<=mid){
-        temp[k++]=arr[i++];
-    }
-    while(j<=hi){
-        temp[k++]=arr[j++];
-    }
-    for(int i=lo;i<=hi;i++){
-        arr[i]=temp[i-lo];
-    }
+    while (i<=mid) temp[k++]=arr[i++];
+    while(j<=hi)   temp[k++]=arr[j++];
+    
+    for(int i=lo;i<=hi;i++) arr[i]=temp[i-lo];
 }
 void divide(int arr[],int lo,int hi){
     if (lo<hi){
